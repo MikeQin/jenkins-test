@@ -18,6 +18,11 @@ pipeline {
                 sh 'node --version'
             }
         }
+        stage('Sanity Check') {
+            steps {
+                input "Are we ready to deploy?"
+            }
+        }
         stage('Deploy') {
             steps {
                 timeout(time: 3, unit: 'MINUTES') {
